@@ -46,11 +46,29 @@ function headFor(route) {
   ].join("\n    ");
 }
 
+/**
+ * <Seo> 가 렌더한 메타 태그를 본문에서 걷어낸다.
+ *
+ * React 19 는 브라우저에서 title/meta 를 <head> 로 끌어올리지만, 서버
+ * 렌더링 결과에서는 컴포넌트가 있던 자리(=body 안)에 그대로 남는다.
+ * head 에는 headFor() 로 이미 넣으므로 그대로 두면 문서에 title 이 두 개가
+ * 된다.
+ */
+function stripHoistedMeta(html) {
+  return html
+    .replace(/<title>[\s\S]*?<\/title>/g, "")
+    .replace(
+      /<meta[^>]*(?:name="description"|name="twitter:[^"]*"|property="og:[^"]*")[^>]*>/g,
+      ""
+    )
+    .replace(/<link[^>]*rel="canonical"[^>]*>/g, "");
+}
+
 let count = 0;
 for (const route of routes) {
   // "/" 는 <Navigate> 라 StaticRouter 에서 아무것도 렌더되지 않는다.
   // 실제로 보여줄 첫 화면(/date) 마크업을 넣어 크롤러가 빈 페이지를 보지 않게 한다.
-  const appHtml = render(route === "/" ? "/date" : route);
+  const appHtml = stripHoistedMeta(render(route === "/" ? "/date" : route));
 
   const html = template
     // 템플릿의 기본 <title> 을 라우트별 메타 묶음으로 교체
