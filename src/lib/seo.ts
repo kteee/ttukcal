@@ -6,7 +6,7 @@
  */
 
 /** 배포 도메인. 바꿀 일이 생기면 이 값과 public/robots.txt, public/sitemap.xml 을 함께 고친다. */
-export const SITE_URL = "https://ttukcal.site";
+export const SITE_URL = "https://ttukcal.com";
 export const SITE_NAME = "뚝딱계산기";
 
 export type PageSeo = {

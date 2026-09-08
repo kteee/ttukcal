@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ttukcal.site/</loc>
+    <loc>https://ttukcal.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/date</loc>
+    <loc>https://ttukcal.com/date</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/age</loc>
+    <loc>https://ttukcal.com/age</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/lunar</loc>
+    <loc>https://ttukcal.com/lunar</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/unit</loc>
+    <loc>https://ttukcal.com/unit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/percent</loc>
+    <loc>https://ttukcal.com/percent</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/vat</loc>
+    <loc>https://ttukcal.com/vat</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/interest</loc>
+    <loc>https://ttukcal.com/interest</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/bmi</loc>
+    <loc>https://ttukcal.com/bmi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.site/text</loc>
+    <loc>https://ttukcal.com/text</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

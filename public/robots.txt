@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ttukcal.site/sitemap.xml
+Sitemap: https://ttukcal.com/sitemap.xml
