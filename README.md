@@ -40,7 +40,7 @@ lint → 타입체크 → 번들 → 프리렌더 → 배포까지 돈다.
 2. 저장소 Settings → Pages → Source 를 **GitHub Actions** 로 변경
 3. 커스텀 도메인을 쓸 경우
    - 등록처 DNS: 루트는 A 레코드 4개(`185.199.108~111.153`), `www` 는 CNAME → `<계정>.github.io`
-   - `public/CNAME` 파일에 도메인 한 줄 기록
+   - `public/CNAME` 에 도메인 기록 (현재 `ttukcal.site`)
    - [src/lib/seo.ts](src/lib/seo.ts) 의 `SITE_URL`, `public/robots.txt`,
      `public/sitemap.xml` 의 도메인도 함께 교체
    - 인증서 발급 후 Settings → Pages 에서 **Enforce HTTPS** 체크

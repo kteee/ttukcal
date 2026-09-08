@@ -5,8 +5,8 @@
  * 않으면 9개 페이지가 검색엔진에 같은 문서로 보인다.
  */
 
-/** 배포 도메인. 실제 도메인이 정해지면 이 값만 바꾸면 된다. */
-export const SITE_URL = "https://ttukddak.com";
+/** 배포 도메인. 바꿀 일이 생기면 이 값과 public/robots.txt, public/sitemap.xml 을 함께 고친다. */
+export const SITE_URL = "https://ttukcal.site";
 export const SITE_NAME = "뚝딱계산기";
 
 export type PageSeo = {
