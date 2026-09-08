@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* 중성 연회색 계열 */
+  --color-canvas: #f5f5f6;
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1c;
+  --color-ink-soft: #48484c;
+  --color-muted: #78787e;
+  --color-line: #dadade;
+  --color-line-soft: #ebebee;
+  /* 선택·활성 상태 배경 */
+  --color-selected: #f6f6f8;
+
+  /* 포인트: 블루 */
+  --color-accent: #274dea;
+  --color-accent-strong: #1b37a8;
+  --color-accent-soft: #eef1fe;
+  --color-accent-line: #a8b8f4;
+}
+
+/* 반드시 @layer base 안에 둔다. 레이어 밖 CSS 는 Tailwind 유틸리티(@layer
+   utilities)보다 우선순위가 높아서, button { color: inherit } 같은 규칙이
+   text-* / font-* 유틸리티를 통째로 덮어버린다. */
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-canvas);
+  }
+
+  body {
+    color: var(--color-ink);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  input[type="date"],
+  input[type="number"] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* 사파리는 list-style:none 만으로 기본 삼각형이 남는다 */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
