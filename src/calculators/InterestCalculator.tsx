@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import Card from "../components/Card";
-import Field, { inputClass } from "../components/Field";
+import Field, { inputClass, selectClass } from "../components/Field";
 import MoneyInput from "../components/MoneyInput";
 import PageHead from "../components/PageHead";
 import QuickAmount from "../components/QuickAmount";
@@ -216,7 +216,7 @@ const InterestCalculator = () => {
             <Field label="이자 방식" htmlFor="compound">
               <select
                 id="compound"
-                className={inputClass}
+                className={selectClass}
                 value={compound}
                 onChange={(e) =>
                   setCompound(e.target.value as "simple" | "monthly")

@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { format, isValid, parseISO } from "date-fns";
 import { ko } from "date-fns/locale";
 import Card from "../components/Card";
-import Field, { inputClass } from "../components/Field";
+import Field, { inputClass, selectClass } from "../components/Field";
 import PageHead from "../components/PageHead";
 import Row from "../components/Row";
 import {
@@ -151,7 +151,7 @@ const LunarConverter = () => {
               <Field label="월" htmlFor="lunar-month">
                 <select
                   id="lunar-month"
-                  className={inputClass}
+                  className={selectClass}
                   value={lunarMonth}
                   onChange={(e) => setLunarMonth(e.target.value)}
                 >
@@ -165,7 +165,7 @@ const LunarConverter = () => {
               <Field label="일" htmlFor="lunar-day">
                 <select
                   id="lunar-day"
-                  className={inputClass}
+                  className={selectClass}
                   value={lunarDay}
                   onChange={(e) => setLunarDay(e.target.value)}
                 >

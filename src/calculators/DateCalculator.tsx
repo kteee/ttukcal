@@ -11,7 +11,7 @@ import {
 } from "date-fns";
 import { ko } from "date-fns/locale";
 import Card from "../components/Card";
-import Field, { inputClass } from "../components/Field";
+import Field, { inputClass, selectClass } from "../components/Field";
 import PageHead from "../components/PageHead";
 import Row from "../components/Row";
 
@@ -134,7 +134,7 @@ const DateCalculator = () => {
           <Field label="방향" htmlFor="direction">
             <select
               id="direction"
-              className={inputClass}
+              className={selectClass}
               value={direction}
               onChange={(e) => setDirection(e.target.value as "add" | "sub")}
             >

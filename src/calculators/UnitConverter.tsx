@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import Card from "../components/Card";
-import Field, { inputClass } from "../components/Field";
+import Field, { inputClass, selectClass } from "../components/Field";
 import PageHead from "../components/PageHead";
 import Row from "../components/Row";
 
@@ -168,7 +168,7 @@ const UnitConverter = () => {
           <Field label="단위" htmlFor="unit-id">
             <select
               id="unit-id"
-              className={inputClass}
+              className={selectClass}
               value={unitId}
               onChange={(e) => setUnitId(e.target.value)}
             >

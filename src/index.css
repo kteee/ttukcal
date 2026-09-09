@@ -58,3 +58,18 @@
     display: none;
   }
 }
+
+@layer components {
+  /*
+   * select 의 네이티브 화살표는 브라우저가 테두리에 바싹 붙여 그리고
+   * padding 으로 밀리지 않는다. 기본 화살표를 지우고 배경 이미지로
+   * 직접 그려서 여백을 준다. (여백 자체는 유틸리티 클래스에서 지정)
+   */
+  .select-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378787e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='5 9 12 16 19 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    background-size: 12px 12px;
+  }
+}
