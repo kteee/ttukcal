@@ -136,7 +136,7 @@ const LunarConverter = () => {
           </div>
         ) : (
           <div className="mt-[18px] grid gap-3.5">
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3.5">
+            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(110px,1fr))]">
               <Field label="음력 연도" htmlFor="lunar-year">
                 <input
                   id="lunar-year"

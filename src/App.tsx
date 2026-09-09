@@ -19,8 +19,8 @@ function App() {
       <Seo />
       <Header />
 
-      <main className="mx-auto grid w-[90%] max-w-[1180px] flex-1 grid-cols-1 items-start gap-[30px] pt-9 pb-16 lg:grid-cols-[minmax(0,1fr)_236px]">
-        <div className="grid min-w-0 gap-[18px]">
+      <main className="mx-auto grid w-[90%] max-w-[1180px] flex-1 grid-cols-1 items-start gap-[30px] pt-5 pb-16 lg:grid-cols-[minmax(0,1fr)_236px] lg:pt-9">
+        <div className="grid min-w-0 gap-[14px] lg:gap-[18px]">
           <Routes>
             <Route path="/" element={<Navigate to="/date" replace />} />
             <Route path="/age" element={<AgePage />} />
