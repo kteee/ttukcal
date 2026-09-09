@@ -62,6 +62,11 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       "키와 몸무게로 BMI를 계산하고 대한비만학회 기준으로 판정합니다. 내 키에 맞는 정상 체중 범위도 함께 알려 줍니다.",
   },
+  "/privacy": {
+    title: "개인정보처리방침 - 뚝딱계산기",
+    description:
+      "뚝딱계산기가 이용자의 정보를 어떻게 취급하는지 안내합니다. 계산에 입력한 값은 브라우저 안에서만 처리되며 서버로 전송되지 않습니다.",
+  },
   "/text": {
     title: "글자수 계산기 | 공백 포함·제외, 바이트, 원고지 - 뚝딱계산기",
     description:

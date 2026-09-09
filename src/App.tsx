@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Seo from "./components/Seo";
 import Guide from "./components/Guide";
@@ -6,6 +6,7 @@ import RelatedLinks from "./components/RelatedLinks";
 import StructuredData from "./components/StructuredData";
 import Sidebar from "./components/Sidebar";
 import HomePage from "./pages/HomePage";
+import PrivacyPage from "./pages/PrivacyPage";
 import AgePage from "./pages/AgePage";
 import DatePage from "./pages/DatePage";
 import TextPage from "./pages/TextPage";
@@ -36,6 +37,7 @@ function App() {
             <Route path="/vat" element={<VatPage />} />
             <Route path="/interest" element={<InterestPage />} />
             <Route path="/bmi" element={<BmiPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <Guide />
@@ -45,9 +47,14 @@ function App() {
       </main>
 
       <footer className="border-t-[1.5px] border-line bg-surface">
-        <div className="mx-auto w-[90%] max-w-[1180px] py-[22px] text-[12.5px] text-muted">
-          뚝딱계산기는 브라우저에서 바로 계산합니다. 입력값은 어디에도 전송되지
-          않습니다.
+        <div className="mx-auto flex w-[90%] max-w-[1180px] flex-wrap items-center justify-between gap-2 py-[22px] text-[12.5px] text-muted">
+          <span>
+            뚝딱계산기는 브라우저에서 바로 계산합니다. 계산에 입력한 값은 서버로
+            전송되지 않습니다.
+          </span>
+          <Link to="/privacy" className="hover:text-accent">
+            개인정보처리방침
+          </Link>
         </div>
       </footer>
     </div>
