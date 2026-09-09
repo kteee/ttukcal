@@ -71,10 +71,3 @@ export function buildJsonLd(pathname: string): object {
 
   return { "@context": "https://schema.org", "@graph": graph };
 }
-
-/** 프리렌더에서 통째로 갈아끼울 수 있도록 <script> 태그까지 만들어 준다. */
-export function jsonLdScript(pathname: string): string {
-  return `<script type="application/ld+json">${JSON.stringify(
-    buildJsonLd(pathname)
-  )}</script>`;
-}

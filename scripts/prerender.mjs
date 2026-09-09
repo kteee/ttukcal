@@ -15,7 +15,7 @@ const ssrEntry = pathToFileURL(
   path.join(root, "dist-ssr", "entry-server.js")
 ).href;
 
-const { render, jsonLdScript, PAGE_SEO, DEFAULT_SEO, SITE_URL, SITE_NAME } =
+const { render, PAGE_SEO, DEFAULT_SEO, SITE_URL, SITE_NAME } =
   await import(ssrEntry);
 
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
@@ -67,16 +67,7 @@ let count = 0;
 for (const route of routes) {
   // "/" 는 <Navigate> 라 StaticRouter 에서 아무것도 렌더되지 않는다.
   // 실제로 보여줄 첫 화면(/date) 마크업을 넣어 크롤러가 빈 페이지를 보지 않게 한다.
-  let appHtml = stripHoistedMeta(render(route === "/" ? "/date" : route));
-
-  // "/" 는 /date 마크업을 빌려 쓰므로 그 안의 JSON-LD 도 /date 것이 박혀 있다.
-  // 홈에 맞는 구조화 데이터로 갈아끼운다.
-  if (route === "/") {
-    appHtml = appHtml.replace(
-      /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-      jsonLdScript("/")
-    );
-  }
+  const appHtml = stripHoistedMeta(render(route));
 
   const html = template
     // 템플릿의 기본 <title> 을 라우트별 메타 묶음으로 교체
