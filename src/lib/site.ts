@@ -3,5 +3,14 @@
 /** 문의용 이메일. 개인정보처리방침 페이지에 공개된다. */
 export const CONTACT_EMAIL = "ttukcal@gmail.com";
 
+/**
+ * 개인정보 보호책임자 표기.
+ *
+ * 「개인정보 보호법」 제30조제1항제6호는 보호책임자의 '성명' 또는 담당부서의
+ * '명칭과 연락처' 기재를 요구한다. 1인 운영이라 부서가 없으므로 표기를
+ * 정해야 한다. 실명을 넣을지는 운영자가 판단할 부분.
+ */
+export const PRIVACY_OFFICER = "운영자";
+
 /** 개인정보처리방침 시행일 */
 export const POLICY_EFFECTIVE_DATE = "2026년 9월 9일";
