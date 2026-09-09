@@ -2,6 +2,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Seo from "./components/Seo";
 import Guide from "./components/Guide";
+import RelatedLinks from "./components/RelatedLinks";
+import StructuredData from "./components/StructuredData";
 import Sidebar from "./components/Sidebar";
 import AgePage from "./pages/AgePage";
 import DatePage from "./pages/DatePage";
@@ -17,6 +19,7 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col bg-canvas">
       <Seo />
+      <StructuredData />
       <Header />
 
       <main className="mx-auto grid w-[90%] max-w-[1180px] flex-1 grid-cols-1 items-start gap-[30px] pt-5 pb-16 lg:grid-cols-[minmax(0,1fr)_236px] lg:pt-9">
@@ -35,6 +38,7 @@ function App() {
             <Route path="*" element={<Navigate to="/date" replace />} />
           </Routes>
           <Guide />
+          <RelatedLinks />
         </div>
         <Sidebar />
       </main>
