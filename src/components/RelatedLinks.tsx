@@ -32,15 +32,17 @@ const RelatedLinks = () => {
 
   return (
     <nav className="text-[12.5px] text-muted">
-      <span className="mr-1">이런 계산기도 있어요</span>
-      {items.map((item, i) => (
-        <span key={item.to}>
-          {i > 0 && <span className="mx-1 text-line">·</span>}
-          <Link to={item.to} className="text-ink-soft hover:text-accent">
-            {item.label}
-          </Link>
-        </span>
-      ))}
+      <div>이런 계산기도 있어요</div>
+      <div className="mt-1">
+        {items.map((item, i) => (
+          <span key={item.to}>
+            {i > 0 && <span className="mx-1 text-line">·</span>}
+            <Link to={item.to} className="text-ink-soft hover:text-accent">
+              {item.label}
+            </Link>
+          </span>
+        ))}
+      </div>
     </nav>
   );
 };
