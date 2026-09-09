@@ -10,7 +10,7 @@ export const CONTACT_EMAIL = "ttukcal@gmail.com";
  * '명칭과 연락처' 기재를 요구한다. 1인 운영이라 부서가 없으므로 표기를
  * 정해야 한다. 실명을 넣을지는 운영자가 판단할 부분.
  */
-export const PRIVACY_OFFICER = "운영자";
+export const PRIVACY_OFFICER = "김태은";
 
 /** 개인정보처리방침 시행일 */
 export const POLICY_EFFECTIVE_DATE = "2026년 9월 9일";
