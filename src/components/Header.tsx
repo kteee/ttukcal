@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import MobileMenu from "./MobileMenu";
+import MenuDropdown from "./MenuDropdown";
 
 const Header = () => {
   return (
     <header className="border-b-[1.5px] border-line bg-surface">
       {/* 드롭다운 패널이 이 안에서 절대배치되도록 relative */}
-      <div className="relative mx-auto flex h-[56px] w-[90%] max-w-[1180px] items-center justify-between">
+      <div className="relative mx-auto flex h-[56px] w-[90%] max-w-[900px] items-center justify-between">
         <Link
           to="/"
           className="text-[16px] font-semibold tracking-[-0.01em] hover:text-accent"
         >
           뚝딱계산기
         </Link>
-        <MobileMenu />
+        <MenuDropdown />
       </div>
     </header>
   );

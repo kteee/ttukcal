@@ -93,7 +93,7 @@ React 19 · TypeScript · Vite 7 · Tailwind CSS 4 · React Router 7 · date-fns
 
 ```
 src/
-  components/     # Header, Sidebar, Card, Row, Field, MoneyInput, PageHead
+  components/     # Header, MenuDropdown, Card, Row, Field, MoneyInput, PageHead
   calculators/    # 계산기 본체 (UI + 상태)
   pages/          # 라우트 진입점
   lib/            # 순수 계산 로직 (UI 의존성 없음)

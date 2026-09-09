@@ -4,7 +4,6 @@ import Seo from "./components/Seo";
 import Guide from "./components/Guide";
 import RelatedLinks from "./components/RelatedLinks";
 import StructuredData from "./components/StructuredData";
-import Sidebar from "./components/Sidebar";
 import HomePage from "./pages/HomePage";
 import PrivacyPage from "./pages/PrivacyPage";
 import AgePage from "./pages/AgePage";
@@ -24,7 +23,7 @@ function App() {
       <StructuredData />
       <Header />
 
-      <main className="mx-auto grid w-[90%] max-w-[1180px] flex-1 grid-cols-1 items-start gap-[30px] pt-5 pb-16 lg:grid-cols-[minmax(0,1fr)_236px] lg:pt-9">
+      <main className="mx-auto w-[90%] max-w-[900px] flex-1 pt-5 pb-16 lg:pt-9">
         <div className="grid min-w-0 gap-[14px] lg:gap-[18px]">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -43,11 +42,10 @@ function App() {
           <Guide />
           <RelatedLinks />
         </div>
-        <Sidebar />
       </main>
 
       <footer className="border-t-[1.5px] border-line bg-surface">
-        <div className="mx-auto flex w-[90%] max-w-[1180px] flex-wrap items-center justify-between gap-2 py-[22px] text-[12.5px] text-muted">
+        <div className="mx-auto flex w-[90%] max-w-[900px] flex-wrap items-center justify-between gap-2 py-[22px] text-[12.5px] text-muted">
           <span>
             뚝딱계산기는 브라우저에서 바로 계산합니다. 계산에 입력한 값은 서버로
             전송되지 않습니다.

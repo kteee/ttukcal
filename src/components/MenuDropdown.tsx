@@ -3,12 +3,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import { MENU, menuLabelFor } from "../lib/menu";
 
 /**
- * 모바일용 헤더 드롭다운.
+ * 헤더 메뉴 드롭다운.
  *
- * 사이드바를 그대로 위에 쌓으면 메뉴 9줄이 화면을 채워서 정작 계산기가
- * 스크롤 아래로 밀린다. 좁은 화면에서는 헤더에 접어 넣는다.
+ * 사이드바를 두면 모바일에서 메뉴 9줄이 화면을 채워 계산기가 스크롤 아래로
+ * 밀린다. PC 에서도 사이드바가 본문 폭을 줄이기만 해서, 화면 크기와 무관하게
+ * 헤더 드롭다운 하나로 통일했다.
  */
-const MobileMenu = () => {
+const MenuDropdown = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
@@ -25,7 +26,7 @@ const MobileMenu = () => {
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div>
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
@@ -83,4 +84,4 @@ const MobileMenu = () => {
   );
 };
 
-export default MobileMenu;
+export default MenuDropdown;
