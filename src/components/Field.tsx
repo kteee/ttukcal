@@ -21,6 +21,6 @@ export const inputClass =
 
 /** select 전용. 오른쪽 화살표 자리만큼 여백을 더 준다. */
 export const selectClass =
-  "select-field w-full border-[1.5px] border-line bg-surface py-2.5 pr-9 pl-3 text-[14px] outline-none focus:border-accent";
+  "select-field w-full border-[1.5px] border-line bg-surface py-2.5 pr-10 pl-3 text-[14px] outline-none focus:border-accent";
 
 export default Field;
