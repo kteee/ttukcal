@@ -3,7 +3,7 @@ export type MenuItem = { to: string; label: string };
 
 export const MENU: MenuItem[] = [
   { to: "/date", label: "날짜 계산기" },
-  { to: "/age", label: "만나이 계산기" },
+  { to: "/age", label: "나이 계산기" },
   { to: "/lunar", label: "양음력 변환기" },
   { to: "/unit", label: "단위 변환기" },
   { to: "/percent", label: "퍼센트 계산기" },

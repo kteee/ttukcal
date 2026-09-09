@@ -8,10 +8,8 @@ import {
   format,
   isValid,
   parseISO,
-  setYear,
   startOfDay,
 } from "date-fns";
-import { ko } from "date-fns/locale";
 import Card from "../components/Card";
 import Field, { inputClass } from "../components/Field";
 import PageHead from "../components/PageHead";
@@ -34,21 +32,13 @@ const AgeCalculator = () => {
     const months = differenceInMonths(base, afterYears);
     const days = differenceInDays(base, addMonths(afterYears, months));
 
-    const birthdayThisYear = setYear(birth, base.getFullYear());
-    const nextBirthday =
-      birthdayThisYear < base ? addYears(birthdayThisYear, 1) : birthdayThisYear;
-
     return {
       error: null,
       years,
       months,
       days,
-      totalDays: differenceInDays(base, birth),
       koreanAge: base.getFullYear() - birth.getFullYear() + 1,
       yearAge: base.getFullYear() - birth.getFullYear(),
-      nextBirthday,
-      untilBirthday: differenceInDays(nextBirthday, base),
-      weekday: format(birth, "EEEE", { locale: ko }),
     };
   }, [birthInput, baseInput]);
 
@@ -94,20 +84,10 @@ const AgeCalculator = () => {
               emphasis
             />
             <Row label="세는 나이" value={`${result.koreanAge}세`} note="옛 한국식" />
-            <Row label="연 나이" value={`${result.yearAge}세`} note="연도 차이" />
             <Row
-              label="태어난 지"
-              value={`${result.totalDays.toLocaleString()}일`}
-              note={`태어난 요일 ${result.weekday}`}
-            />
-            <Row
-              label="다음 생일"
-              value={
-                result.untilBirthday === 0
-                  ? "오늘"
-                  : `D-${result.untilBirthday}`
-              }
-              note={format(result.nextBirthday, "yyyy.MM.dd")}
+              label="연 나이"
+              value={`${result.yearAge}세`}
+              note="연도 차이"
               last
             />
           </div>

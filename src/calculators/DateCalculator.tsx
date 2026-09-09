@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import {
   addDays,
-  differenceInBusinessDays,
   differenceInCalendarDays,
   format,
   intervalToDuration,
@@ -41,7 +40,6 @@ const DateCalculator = () => {
       days,
       weeks: Math.floor(days / 7),
       restDays: days % 7,
-      businessDays: Math.abs(differenceInBusinessDays(late, early)),
       years: duration.years ?? 0,
       months: duration.months ?? 0,
       restOfDays: duration.days ?? 0,
@@ -107,11 +105,6 @@ const DateCalculator = () => {
             <Row
               label="년·월·일"
               value={`${between.years}년 ${between.months}개월 ${between.restOfDays}일`}
-            />
-            <Row
-              label="평일"
-              value={`${between.businessDays.toLocaleString()}일`}
-              note="주말 제외"
               last
             />
           </div>
@@ -163,12 +156,8 @@ const DateCalculator = () => {
               label={`${base.replaceAll("-", ".")} 기준 ${amount}일 ${
                 direction === "add" ? "뒤" : "앞"
               }`}
-              value={format(shifted.result, "yyyy.MM.dd")}
+              value={format(shifted.result, "yyyy.MM.dd (E)", { locale: ko })}
               emphasis
-            />
-            <Row
-              label="요일"
-              value={format(shifted.result, "EEEE", { locale: ko })}
               last
             />
           </div>
