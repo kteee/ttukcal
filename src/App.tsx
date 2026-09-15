@@ -15,6 +15,7 @@ import PercentPage from "./pages/PercentPage";
 import VatPage from "./pages/VatPage";
 import InterestPage from "./pages/InterestPage";
 import BmiPage from "./pages/BmiPage";
+import SalaryPage from "./pages/SalaryPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <div className="grid min-w-0 gap-[14px] lg:gap-[18px]">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/salary" element={<SalaryPage />} />
             <Route path="/age" element={<AgePage />} />
             <Route path="/text" element={<TextPage />} />
             <Route path="/date" element={<DatePage />} />

@@ -26,7 +26,17 @@ export const MENU: MenuItem[] = [
   },
 ];
 
-/** 현재 경로의 메뉴 이름. 모바일 드롭다운 버튼에 표시한다. */
+/** 헤더 대메뉴 "실수령 계산기". 생활 계산기(MENU)와 따로 둔다. */
+export const SALARY_MENU: MenuItem = {
+  to: "/salary",
+  label: "실수령 계산기",
+  desc: "연봉별 월 실수령액 표",
+};
+
+/** 현재 경로의 메뉴 이름. 구조화 데이터의 페이지 이름으로 쓴다. */
 export function menuLabelFor(pathname: string): string {
-  return MENU.find((item) => item.to === pathname)?.label ?? "계산기";
+  return (
+    [SALARY_MENU, ...MENU].find((item) => item.to === pathname)?.label ??
+    "계산기"
+  );
 }

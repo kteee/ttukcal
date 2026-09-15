@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { MENU, menuLabelFor } from "../lib/menu";
+import { topMenuClass } from "./topMenuClass";
+import { MENU } from "../lib/menu";
 import { hrefFor } from "../lib/path";
 import { usePagePath } from "../lib/usePagePath";
 
 /**
- * 헤더 메뉴 드롭다운.
+ * 헤더 대메뉴 "생활 계산기" 드롭다운.
  *
  * 사이드바를 두면 모바일에서 메뉴 9줄이 화면을 채워 계산기가 스크롤 아래로
  * 밀린다. PC 에서도 사이드바가 본문 폭을 줄이기만 해서, 화면 크기와 무관하게
@@ -14,6 +15,7 @@ import { usePagePath } from "../lib/usePagePath";
 const MenuDropdown = () => {
   const pathname = usePagePath();
   const [open, setOpen] = useState(false);
+  const inSection = MENU.some((item) => item.to === pathname);
 
   // 메뉴를 고르면 경로가 바뀌므로 그때 닫는다.
   useEffect(() => setOpen(false), [pathname]);
@@ -34,9 +36,9 @@ const MenuDropdown = () => {
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="flex items-center gap-1.5 border-[1.5px] border-line px-3 py-1.5 text-[13px] text-ink-soft"
+        className={topMenuClass(inSection)}
       >
-        {menuLabelFor(pathname)}
+        생활 계산기
         <svg
           width="11"
           height="11"

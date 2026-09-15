@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MenuDropdown from "./MenuDropdown";
+import { topMenuClass } from "./topMenuClass";
+import { SALARY_MENU } from "../lib/menu";
+import { hrefFor } from "../lib/path";
 
 const Header = () => {
   return (
@@ -12,7 +15,15 @@ const Header = () => {
         >
           뚝딱계산기
         </Link>
-        <MenuDropdown />
+        <nav className="-mr-2.5 flex items-center">
+          <NavLink
+            to={hrefFor(SALARY_MENU.to)}
+            className={({ isActive }) => topMenuClass(isActive)}
+          >
+            {SALARY_MENU.label}
+          </NavLink>
+          <MenuDropdown />
+        </nav>
       </div>
     </header>
   );

@@ -5,6 +5,7 @@ import { usePagePath } from "../lib/usePagePath";
 
 /** 성격이 가까운 계산기끼리 묶는다. */
 const RELATED: Record<string, string[]> = {
+  "/salary": ["/interest", "/vat", "/percent"],
   "/date": ["/age", "/lunar", "/unit"],
   "/age": ["/date", "/lunar", "/bmi"],
   "/lunar": ["/date", "/age", "/unit"],

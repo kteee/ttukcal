@@ -5,6 +5,7 @@ import MoneyInput from "../components/MoneyInput";
 import PageHead from "../components/PageHead";
 import QuickAmount from "../components/QuickAmount";
 import Row from "../components/Row";
+import { readableAmount } from "../lib/money";
 
 type Mode = "deposit" | "saving" | "loan";
 
@@ -12,19 +13,6 @@ type Mode = "deposit" | "saving" | "loan";
 const TAX_RATE = 0.154;
 
 const won = (n: number) => `${Math.round(n).toLocaleString()}원`;
-
-/** 1234500000 → "12억 3,450만원". 자릿수 세는 실수를 막으려고 같이 보여준다. */
-function readableAmount(n: number): string {
-  if (!Number.isFinite(n) || n <= 0) return "";
-  const eok = Math.floor(n / 100_000_000);
-  const man = Math.floor((n % 100_000_000) / 10_000);
-  const rest = Math.round(n % 10_000);
-  const parts: string[] = [];
-  if (eok) parts.push(`${eok.toLocaleString()}억`);
-  if (man) parts.push(`${man.toLocaleString()}만`);
-  if (rest) parts.push(rest.toLocaleString());
-  return `${parts.join(" ")}원`;
-}
 
 const InterestCalculator = () => {
   const [mode, setMode] = useState<Mode>("deposit");

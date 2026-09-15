@@ -22,6 +22,11 @@ export const DEFAULT_SEO: PageSeo = {
 };
 
 export const PAGE_SEO: Record<string, PageSeo> = {
+  "/salary": {
+    title: "실수령 계산기",
+    description:
+      "연봉별 월 실수령액을 표로 정리했습니다. 국민연금, 건강보험, 장기요양보험, 고용보험, 소득세를 뺀 금액을 한눈에 비교할 수 있습니다.",
+  },
   "/date": {
     title: "날짜 계산기",
     description:
