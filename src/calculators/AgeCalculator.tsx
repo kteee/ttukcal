@@ -53,7 +53,7 @@ const AgeCalculator = () => {
       <PageHead title="만나이 계산기" />
 
       <Card label="생년월일 입력">
-        <div className="grid gap-3.5 sm:max-w-[420px]">
+        <div className="grid gap-3.5">
           <DatePartsInput
             id="birth"
             label="생년월일"
