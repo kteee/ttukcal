@@ -5,25 +5,31 @@ import {
   differenceInDays,
   differenceInMonths,
   differenceInYears,
-  format,
-  isValid,
-  parseISO,
-  startOfDay,
 } from "date-fns";
 import Card from "../components/Card";
-import Field, { inputClass } from "../components/Field";
+import DatePartsInput from "../components/DatePartsInput";
 import PageHead from "../components/PageHead";
 import Row from "../components/Row";
+import {
+  dateToParts,
+  EMPTY_DATE_PARTS,
+  partsToDate,
+  type DateParts,
+} from "../lib/dateParts";
 
 const AgeCalculator = () => {
-  const [birthInput, setBirthInput] = useState("");
-  const [baseInput, setBaseInput] = useState(format(new Date(), "yyyy-MM-dd"));
+  const [birthParts, setBirthParts] = useState<DateParts>(EMPTY_DATE_PARTS);
+  const [baseParts, setBaseParts] = useState<DateParts>(() =>
+    dateToParts(new Date())
+  );
 
   const result = useMemo(() => {
-    const birth = birthInput ? startOfDay(parseISO(birthInput)) : null;
-    const base = baseInput ? startOfDay(parseISO(baseInput)) : null;
+    const birth = partsToDate(birthParts);
+    const base = partsToDate(baseParts);
 
-    if (!birth || !isValid(birth) || !base || !isValid(base)) return null;
+    if (birth === "invalid") return { error: "생년월일이 없는 날짜입니다." } as const;
+    if (base === "invalid") return { error: "기준일이 없는 날짜입니다." } as const;
+    if (!birth || !base) return null;
     if (birth > base) return { error: "생년월일이 기준일보다 늦습니다." } as const;
 
     // 만나이: 생일이 지났으면 (기준연도 - 출생연도), 아니면 그보다 1살 적다.
@@ -40,33 +46,26 @@ const AgeCalculator = () => {
       koreanAge: base.getFullYear() - birth.getFullYear() + 1,
       yearAge: base.getFullYear() - birth.getFullYear(),
     };
-  }, [birthInput, baseInput]);
+  }, [birthParts, baseParts]);
 
   return (
     <div className="grid gap-[18px]">
       <PageHead title="만나이 계산기" />
 
       <Card label="생년월일 입력">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3.5">
-          <Field label="생년월일" htmlFor="birth">
-            <input
-              id="birth"
-              type="date"
-              className={inputClass}
-              value={birthInput}
-              max={baseInput}
-              onChange={(e) => setBirthInput(e.target.value)}
-            />
-          </Field>
-          <Field label="기준일" htmlFor="base">
-            <input
-              id="base"
-              type="date"
-              className={inputClass}
-              value={baseInput}
-              onChange={(e) => setBaseInput(e.target.value)}
-            />
-          </Field>
+        <div className="grid gap-3.5 sm:max-w-[420px]">
+          <DatePartsInput
+            id="birth"
+            label="생년월일"
+            value={birthParts}
+            onChange={setBirthParts}
+          />
+          <DatePartsInput
+            id="base"
+            label="기준일"
+            value={baseParts}
+            onChange={setBaseParts}
+          />
         </div>
 
         {result?.error && (
