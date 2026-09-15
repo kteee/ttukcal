@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MENU, menuLabelFor } from "../lib/menu";
+import { hrefFor } from "../lib/path";
+import { usePagePath } from "../lib/usePagePath";
 
 /**
  * 헤더 메뉴 드롭다운.
@@ -10,7 +12,7 @@ import { MENU, menuLabelFor } from "../lib/menu";
  * 헤더 드롭다운 하나로 통일했다.
  */
 const MenuDropdown = () => {
-  const { pathname } = useLocation();
+  const pathname = usePagePath();
   const [open, setOpen] = useState(false);
 
   // 메뉴를 고르면 경로가 바뀌므로 그때 닫는다.
@@ -63,7 +65,7 @@ const MenuDropdown = () => {
             {MENU.map((item, i) => (
               <NavLink
                 key={item.to}
-                to={item.to}
+                to={hrefFor(item.to)}
                 className={({ isActive }) =>
                   `block px-4 py-[11px] text-[14px] ${
                     i === MENU.length - 1 ? "" : "border-b border-line-soft"

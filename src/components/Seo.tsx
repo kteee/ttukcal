@@ -1,5 +1,6 @@
-import { useLocation } from "react-router-dom";
-import { SITE_NAME, SITE_URL, seoFor } from "../lib/seo";
+import { pageUrl } from "../lib/path";
+import { SITE_NAME, seoFor } from "../lib/seo";
+import { usePagePath } from "../lib/usePagePath";
 
 /**
  * 라우트가 바뀔 때마다 검색 메타데이터를 갈아 끼운다.
@@ -8,9 +9,9 @@ import { SITE_NAME, SITE_URL, seoFor } from "../lib/seo";
  * 주므로 별도 라이브러리(react-helmet 등)가 필요 없다.
  */
 const Seo = () => {
-  const { pathname } = useLocation();
-  const { title, description } = seoFor(pathname);
-  const url = `${SITE_URL}${pathname}`;
+  const path = usePagePath();
+  const { title, description } = seoFor(path);
+  const url = pageUrl(path);
 
   return (
     <>

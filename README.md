@@ -56,6 +56,10 @@ lint → 타입체크 → 번들 → 프리렌더 → 배포까지 돈다.
 - **페이지별 메타**: [src/lib/seo.ts](src/lib/seo.ts) 에 라우트별 title /
   description 을 두고, 프리렌더 시 `<head>` 에 직접 박아 넣는다. 클라이언트에서는
   [src/components/Seo.tsx](src/components/Seo.tsx) 가 갱신한다.
+- **URL 끝 슬래시**: GitHub Pages 는 `/age` 를 `/age/` 로 301 한다. 그래서
+  canonical·사이트맵·내부 링크는 곧바로 200 을 받는 `/age/` 형태로 쓰고,
+  조회 키는 끝 슬래시를 뗀 `/age` 로 통일한다([src/lib/path.ts](src/lib/path.ts)).
+  둘이 어긋나면 JS 가 뜬 뒤 제목이 홈 기본값으로 덮여 검색엔진이 페이지를 홈으로 합친다.
 - **홈**: `/` 는 계산기 9종을 카드로 나열하는 실제 페이지다. 리다이렉트로
   두면 홈 고유의 콘텐츠가 없어 브랜드·일반 검색어로 들어올 자리가 사라진다.
 - **구조화 데이터**: [src/lib/structured-data.ts](src/lib/structured-data.ts).

@@ -15,7 +15,7 @@ const ssrEntry = pathToFileURL(
   path.join(root, "dist-ssr", "entry-server.js")
 ).href;
 
-const { render, PAGE_SEO, DEFAULT_SEO, SITE_URL, SITE_NAME } =
+const { render, pageUrl, PAGE_SEO, DEFAULT_SEO, SITE_NAME } =
   await import(ssrEntry);
 
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
@@ -30,7 +30,8 @@ const escape = (s) =>
 
 function headFor(route) {
   const seo = route === "/" ? DEFAULT_SEO : (PAGE_SEO[route] ?? DEFAULT_SEO);
-  const url = route === "/" ? `${SITE_URL}/` : `${SITE_URL}${route}`;
+  // GitHub Pages 가 실제로 200 을 주는 끝 슬래시 주소를 canonical 로 쓴다.
+  const url = pageUrl(route);
   return [
     `<title>${escape(seo.title)}</title>`,
     `<meta name="description" content="${escape(seo.description)}">`,
@@ -65,8 +66,6 @@ function stripHoistedMeta(html) {
 
 let count = 0;
 for (const route of routes) {
-  // "/" 는 <Navigate> 라 StaticRouter 에서 아무것도 렌더되지 않는다.
-  // 실제로 보여줄 첫 화면(/date) 마크업을 넣어 크롤러가 빈 페이지를 보지 않게 한다.
   const appHtml = stripHoistedMeta(render(route));
 
   const html = template

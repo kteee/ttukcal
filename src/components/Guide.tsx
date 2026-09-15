@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
 import { guideFor } from "../lib/guides";
+import { usePagePath } from "../lib/usePagePath";
 
 const Chevron = () => (
   <svg
@@ -47,8 +47,7 @@ const InfoIcon = () => (
  * 사라진다. <details> 는 접혀 있어도 HTML 소스에 그대로 남는다.
  */
 const Guide = () => {
-  const { pathname } = useLocation();
-  const guide = guideFor(pathname);
+  const guide = guideFor(usePagePath());
   if (!guide) return null;
 
   return (

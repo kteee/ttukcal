@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHead from "../components/PageHead";
 import { MENU } from "../lib/menu";
+import { hrefFor } from "../lib/path";
 
 /**
  * 홈. 계산기 목록을 카드로 깐다.
@@ -17,7 +18,7 @@ const HomePage = () => {
         {MENU.map((item) => (
           <Link
             key={item.to}
-            to={item.to}
+            to={hrefFor(item.to)}
             className="border-[1.5px] border-line bg-surface px-4 py-4 hover:border-accent"
           >
             <div className="text-[14.5px] font-semibold text-ink">

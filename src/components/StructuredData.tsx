@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
 import { buildJsonLd } from "../lib/structured-data";
+import { usePagePath } from "../lib/usePagePath";
 
 /**
  * 검색엔진용 구조화 데이터(JSON-LD).
@@ -9,12 +9,12 @@ import { buildJsonLd } from "../lib/structured-data";
  * 문자열 이스케이프 사고를 피하려고 dangerouslySetInnerHTML 로 넣는다.
  */
 const StructuredData = () => {
-  const { pathname } = useLocation();
+  const path = usePagePath();
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd(pathname)) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd(path)) }}
     />
   );
 };

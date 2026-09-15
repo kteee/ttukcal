@@ -1,4 +1,5 @@
 import { MENU, menuLabelFor } from "./menu";
+import { pageUrl } from "./path";
 import { SITE_NAME, SITE_URL, seoFor } from "./seo";
 
 /**
@@ -11,7 +12,7 @@ import { SITE_NAME, SITE_URL, seoFor } from "./seo";
 export function buildJsonLd(pathname: string): object {
   const { description } = seoFor(pathname);
   const isHome = pathname === "/";
-  const url = isHome ? `${SITE_URL}/` : `${SITE_URL}${pathname}`;
+  const url = pageUrl(pathname);
 
   const graph: unknown[] = [
     {
@@ -33,7 +34,7 @@ export function buildJsonLd(pathname: string): object {
         "@type": "ListItem",
         position: i + 1,
         name: item.label,
-        url: `${SITE_URL}${item.to}`,
+        url: pageUrl(item.to),
       })),
     });
   } else {

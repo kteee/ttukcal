@@ -50,7 +50,7 @@ function App() {
             뚝딱계산기는 브라우저에서 바로 계산합니다. 계산에 입력한 값은 서버로
             전송되지 않습니다.
           </span>
-          <Link to="/privacy" className="hover:text-accent">
+          <Link to="/privacy/" className="hover:text-accent">
             개인정보처리방침
           </Link>
         </div>

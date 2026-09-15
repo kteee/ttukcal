@@ -1,5 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MENU } from "../lib/menu";
+import { hrefFor } from "../lib/path";
+import { usePagePath } from "../lib/usePagePath";
 
 /** 성격이 가까운 계산기끼리 묶는다. */
 const RELATED: Record<string, string[]> = {
@@ -22,8 +24,7 @@ const RELATED: Record<string, string[]> = {
  * 자연스럽게 넘어간다.
  */
 const RelatedLinks = () => {
-  const { pathname } = useLocation();
-  const related = RELATED[pathname];
+  const related = RELATED[usePagePath()];
   if (!related) return null;
 
   const items = related
@@ -37,7 +38,7 @@ const RelatedLinks = () => {
         {items.map((item, i) => (
           <span key={item.to}>
             {i > 0 && <span className="mx-1 text-line">·</span>}
-            <Link to={item.to} className="text-ink-soft hover:text-accent">
+            <Link to={hrefFor(item.to)} className="text-ink-soft hover:text-accent">
               {item.label}
             </Link>
           </span>

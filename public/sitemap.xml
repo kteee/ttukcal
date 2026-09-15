@@ -6,52 +6,52 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/date</loc>
+    <loc>https://ttukcal.com/date/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/age</loc>
+    <loc>https://ttukcal.com/age/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/lunar</loc>
+    <loc>https://ttukcal.com/lunar/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/unit</loc>
+    <loc>https://ttukcal.com/unit/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/percent</loc>
+    <loc>https://ttukcal.com/percent/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/vat</loc>
+    <loc>https://ttukcal.com/vat/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/interest</loc>
+    <loc>https://ttukcal.com/interest/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/bmi</loc>
+    <loc>https://ttukcal.com/bmi/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/privacy</loc>
+    <loc>https://ttukcal.com/privacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://ttukcal.com/text</loc>
+    <loc>https://ttukcal.com/text/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
