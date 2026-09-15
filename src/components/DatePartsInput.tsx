@@ -60,7 +60,7 @@ const DatePartsInput = ({ label, id, value, onChange }: DatePartsInputProps) => 
       <label htmlFor={`${id}-year`} className="text-[12.5px] text-muted">
         {label}
       </label>
-      <div className="grid grid-cols-[1.4fr_1fr_1fr] gap-2">
+      <div className="grid grid-cols-3 gap-2">
         {part(
           "year",
           "년",
